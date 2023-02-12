@@ -18,9 +18,9 @@ document.querySelector('.check').addEventListener('click', function () {
   let guess = Number(document.querySelector('.guess').value);
 
   if (!guess) {
-    displayMessage('🚫 Brak numeru!');
+    displayMessage('🚫 No number!');
   } else if (guess === secretNumber) {
-    displayMessage('🎉 Prawidłowy numer!');
+    displayMessage('🎉 Correct number!');
     document.querySelector('body').style.backgroundColor = '#60b347';
     num.style.width = '30rem';
     num.textContent = secretNumber;
@@ -29,7 +29,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.highscore').textContent = highscore;
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      displayMessage(guess > secretNumber ? '📈 Za wysoko!' : '📉 Za nisko!');
+      displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
       score--;
       showScore(score);
     } else {
@@ -41,7 +41,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
-  displayMessage('Zacznij zgadywać...');
+  displayMessage('Start guessing...');
   showScore(score);
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   document.querySelector('body').style.backgroundColor = '#222';
